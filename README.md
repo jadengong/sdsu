@@ -1,1 +1,3 @@
-# sdsu
+# Misc SDSU 
+
+School WIP, Labs, Learning, etc...
