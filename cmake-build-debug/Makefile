@@ -129,6 +129,30 @@ sdsu/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdsu.dir/build.make CMakeFiles/sdsu.dir/build
 .PHONY : sdsu/fast
 
+files/heapSortArrays.o: files/heapSortArrays.cpp.o
+.PHONY : files/heapSortArrays.o
+
+# target to build an object file
+files/heapSortArrays.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdsu.dir/build.make CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.o
+.PHONY : files/heapSortArrays.cpp.o
+
+files/heapSortArrays.i: files/heapSortArrays.cpp.i
+.PHONY : files/heapSortArrays.i
+
+# target to preprocess a source file
+files/heapSortArrays.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdsu.dir/build.make CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.i
+.PHONY : files/heapSortArrays.cpp.i
+
+files/heapSortArrays.s: files/heapSortArrays.cpp.s
+.PHONY : files/heapSortArrays.s
+
+# target to generate assembly for a file
+files/heapSortArrays.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sdsu.dir/build.make CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.s
+.PHONY : files/heapSortArrays.cpp.s
+
 files/linkedlists.o: files/linkedlists.cpp.o
 .PHONY : files/linkedlists.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sdsu"
+	@echo "... files/heapSortArrays.o"
+	@echo "... files/heapSortArrays.i"
+	@echo "... files/heapSortArrays.s"
 	@echo "... files/linkedlists.o"
 	@echo "... files/linkedlists.i"
 	@echo "... files/linkedlists.s"

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.o"
+  "CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.o.d"
   "CMakeFiles/sdsu.dir/files/linkedlists.cpp.o"
   "CMakeFiles/sdsu.dir/files/linkedlists.cpp.o.d"
   "CMakeFiles/sdsu.dir/files/priorityQueueNHeap.cpp.o"
