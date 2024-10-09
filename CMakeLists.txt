@@ -7,6 +7,7 @@ include_directories(.)
 
 add_executable(sdsu
         files/linkedlists.cpp
+        files/priorityQueueNHeap.cpp
 )
 
 
