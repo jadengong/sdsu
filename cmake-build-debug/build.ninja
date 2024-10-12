@@ -49,12 +49,12 @@ cmake_ninja_workdir = C$:/Code/projects/sdsu/cmake-build-debug/
 
 build cmake_object_order_depends_target_sdsu: phony || .
 
-build CMakeFiles/sdsu.dir/linkedlists.cpp.obj: CXX_COMPILER__sdsu_unscanned_Debug C$:/Code/projects/sdsu/linkedlists.cpp || cmake_object_order_depends_target_sdsu
-  DEP_FILE = CMakeFiles\sdsu.dir\linkedlists.cpp.obj.d
+build CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj: CXX_COMPILER__sdsu_unscanned_Debug C$:/Code/projects/sdsu/files/heapSortArrays.cpp || cmake_object_order_depends_target_sdsu
+  DEP_FILE = CMakeFiles\sdsu.dir\files\heapSortArrays.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -IC:/Code/projects/sdsu/.
   OBJECT_DIR = CMakeFiles\sdsu.dir
-  OBJECT_FILE_DIR = CMakeFiles\sdsu.dir
+  OBJECT_FILE_DIR = CMakeFiles\sdsu.dir\files
 
 
 # =============================================================================
@@ -64,7 +64,7 @@ build CMakeFiles/sdsu.dir/linkedlists.cpp.obj: CXX_COMPILER__sdsu_unscanned_Debu
 #############################################
 # Link the executable sdsu.exe
 
-build sdsu.exe: CXX_EXECUTABLE_LINKER__sdsu_Debug CMakeFiles/sdsu.dir/linkedlists.cpp.obj
+build sdsu.exe: CXX_EXECUTABLE_LINKER__sdsu_Debug CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sdsu.dir

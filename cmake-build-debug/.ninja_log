@@ -1,5 +1,18 @@
 # ninja log v6
-3	444	7492098019385899	CMakeFiles/sdsu.dir/tictactoe.cpp.obj	aef22ec2f017f28a
-12	70	7492100602264457	sdsu.exe	b656fe71d9897d60
-8	223	7492098535331800	CMakeFiles/sdsu.dir/linkedlists.cpp.obj	93112b28295a1a08
-1	204	7492103635782656	build.ninja	364ad50169acff6e
+18	125	7504192302498194	sdsu.exe	c4646667e0aad087
+16	229	7504192158516440	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+2	253	7504192158380715	CMakeFiles/sdsu.dir/files/linkedlists.cpp.obj	7d18e28d47e7cd2b
+3	253	7504192782336645	build.ninja	364ad50169acff6e
+2	226	7504192782336645	build.ninja	364ad50169acff6e
+13	253	7504192782803619	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+254	329	7504192785211371	sdsu.exe	c4646667e0aad087
+4	232	7504192864873893	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+232	315	7504192867155125	sdsu.exe	c4646667e0aad087
+3	210	7504192985393517	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+210	282	7504192987463907	sdsu.exe	c4646667e0aad087
+4	270	7504196388960728	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+270	352	7504196391625340	sdsu.exe	c4646667e0aad087
+3	241	7504196944848921	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+241	321	7504196947224641	sdsu.exe	c4646667e0aad087
+4	235	7504203930272855	CMakeFiles/sdsu.dir/files/heapSortArrays.cpp.obj	5e1a999fffd3a60b
+236	314	7504203932590129	sdsu.exe	c4646667e0aad087
