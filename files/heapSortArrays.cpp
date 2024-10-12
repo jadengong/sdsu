@@ -36,12 +36,26 @@ void heapSort(int arr[], int n) {
         heapify(arr, n, i); // In case new heap violates heap property
     }
 
-    // Step 2: Extract elements from the heap one by one, moving current root to the end
-    for(int i = n - 1; i > 0; i--) {
-        swap(arr[0], arr[i]);
+    // Step 1.5: Create a temp array to store sorted elements
+    int* sortedArr = new int[n];
+
+    // Step 2: Extract smallest (root) element and store in temp array
+    for(int i = 0; i < n; i++) {
+        sortedArr[i] = arr[0];
+        // Move the last element to the root and reduce heap size
+        arr[0] = arr[n - 1- i];
         // Step 3: Heapify the newly reduced heap
-        heapify(arr, i, 0);
+        heapify(arr, n - 1 - i, 0);
     }
+
+    // Step 3.5: Copy sorted elements back into original array
+    for(int i = 0; i < n; i++) {
+        arr[i] = sortedArr[i];
+    }
+
+    // Free allocated memory for temp array
+    delete[] sortedArr;
+
 }
 
 // Function to print the array
@@ -66,7 +80,7 @@ int main() {
     int arr4[] = {1, 1, 1, 1}; // All the same elements
     int n4 = sizeof(arr4) / sizeof(arr4[0]);
 
-    int arr5[] = {2, 3, 6, 9, 11, 15}; // Arrasy is already sorted
+    int arr5[] = {2, 3, 6, 9, 11, 15}; // Array is already sorted
     int n5 = sizeof(arr5) / sizeof(arr5[0]);
 
     int arr6[] = {-1, -8, -2, -5, -3}; // Negative numbers
@@ -89,6 +103,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr, n);
+    cout << endl;
     // === //
 
     // === //
@@ -101,6 +116,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr2, n2);
+    cout << endl;
     // === //
 
     // === //
@@ -113,6 +129,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr3, n3);
+    cout << endl;
     // === //
 
     // === //
@@ -125,6 +142,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr4, n4);
+    cout << endl;
     // === //
 
     // === //
@@ -137,6 +155,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr5, n5);
+    cout << endl;
     // === //
 
     // === //
@@ -149,6 +168,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr6, n6);
+    cout << endl;
     // === //
 
     // === //
@@ -161,6 +181,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr7, n7);
+    cout << endl;
     // === //
 
     // === //
@@ -173,6 +194,7 @@ int main() {
 
     cout << "Sorted array:\n";
     printArray(arr8, n8);
+    cout << endl;
     // === //
 
 
