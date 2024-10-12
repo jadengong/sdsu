@@ -7,7 +7,7 @@ include_directories(.)
 
 add_executable(sdsu
 
-        files/heapSortArrays.cpp
+        files/heapSort.cpp
 )
 
 
