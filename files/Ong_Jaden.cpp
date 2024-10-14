@@ -73,7 +73,7 @@ void heapSort(int arr[], int n) {
             // Continue heapify at new root
             smallest = next;
             }
-        }
+    }
 
     // Step 3.5: Copy sorted elements back into original array
     for(int i = 0; i < n; i++) {
