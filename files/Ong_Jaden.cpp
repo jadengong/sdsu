@@ -5,22 +5,25 @@ using namespace std;
 void heapify(int arr[], int n) {
     // Build the heap -> arr[] represents the heap, n is size
 
-    // Start with the first element and iterate through the array
-    for (int i = 0; i < n; i++) {
-        int currentIndex = i; // Index of the element being inserted
+    for(int i = (n / 2) - 1; i >= 0; i--) {
+        int smallest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-        // Up-heapify the newly inserted element
-        bool swapped = true;
-        while (currentIndex > 0 && swapped) {
-            swapped = false;
-            int parentIndex = (currentIndex - 1) / 2; // Calculate parent index
+        // If left child is < current smallest AND we haven't reached a leaf node
+        if(left < n && arr[left] < arr[smallest]) {
+            smallest = left;
+        }
 
-            // If the current element is smaller than its parent, swap them
-            if (arr[currentIndex] < arr[parentIndex]) {
-                swap(arr[currentIndex], arr[parentIndex]);
-                currentIndex = parentIndex; // Move up to the parent
-                swapped = true;
-            }
+        // If right child is < current smallest AND we haven't reached a leaf node
+        if(right < n && arr[right] < arr[smallest]) {
+            smallest = right;
+        }
+
+        // If smallest is not current node, swap
+        if(smallest != i) {
+            swap(arr[i], arr[smallest]);
+            heapify(arr, n);
         }
     }
 
