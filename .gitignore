@@ -1,2 +1,7 @@
-cmake-build-debug\Testing\Temporary\LastTest.log
-ninja_log
+# CMake build directories
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
