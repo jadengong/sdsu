@@ -7,7 +7,7 @@ include_directories(.)
 
 add_executable(sdsu
 
-        files/heapSort.cpp
+        files/Ong_Jaden.cpp
 )
 
 
