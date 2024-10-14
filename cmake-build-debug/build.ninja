@@ -49,8 +49,8 @@ cmake_ninja_workdir = C$:/Code/projects/sdsu/cmake-build-debug/
 
 build cmake_object_order_depends_target_sdsu: phony || .
 
-build CMakeFiles/sdsu.dir/files/heapSort.cpp.obj: CXX_COMPILER__sdsu_unscanned_Debug C$:/Code/projects/sdsu/files/heapSort.cpp || cmake_object_order_depends_target_sdsu
-  DEP_FILE = CMakeFiles\sdsu.dir\files\heapSort.cpp.obj.d
+build CMakeFiles/sdsu.dir/files/Ong_Jaden.cpp.obj: CXX_COMPILER__sdsu_unscanned_Debug C$:/Code/projects/sdsu/files/Ong_Jaden.cpp || cmake_object_order_depends_target_sdsu
+  DEP_FILE = CMakeFiles\sdsu.dir\files\Ong_Jaden.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -IC:/Code/projects/sdsu/.
   OBJECT_DIR = CMakeFiles\sdsu.dir
@@ -64,7 +64,7 @@ build CMakeFiles/sdsu.dir/files/heapSort.cpp.obj: CXX_COMPILER__sdsu_unscanned_D
 #############################################
 # Link the executable sdsu.exe
 
-build sdsu.exe: CXX_EXECUTABLE_LINKER__sdsu_Debug CMakeFiles/sdsu.dir/files/heapSort.cpp.obj
+build sdsu.exe: CXX_EXECUTABLE_LINKER__sdsu_Debug CMakeFiles/sdsu.dir/files/Ong_Jaden.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sdsu.dir

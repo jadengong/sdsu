@@ -2,39 +2,36 @@
 using namespace std;
 
 
-void heapify(int arr[], int n, int i) { // Added an index for easier tracking
-    // Build the minHeap -> arr[] represents the heap, n is size, i is index
+void heapify(int arr[], int n) {
+    // Build the heap -> arr[] represents the heap, n is size
 
-    int smallest = i; // Initializing root as the smallest
-    int left = 2 * i + 1; // Left child
-    int right = 2 * i + 2; // Right child
+    for(int i = (n / 2) - 1; i >= 0; i--) {
+        int smallest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
 
-    // If the left child is smaller than the root
-    if(left < n && arr[left] < arr[smallest]) {
-        smallest = left;
-    }
+        // If left child is < current smallest
+        if(left < n && arr[left] < arr[smallest]) {
+            smallest = left;
+        }
 
-    // If the right child is smaller than the smallest value so far
-    if(right < n && arr[right] < arr[smallest]) {
-        smallest = right;
-    }
+        // If right child is < current smallest
+        if(right < n && arr[right] < arr[smallest]) {
+            smallest = right;
+        }
 
-    // If the smallest is not the root, swap them and continue the heapify
-    if(smallest != i) {
-        swap(arr[i], arr[smallest]);
-        heapify(arr, n, smallest); // Heapify the subtree again
+        // If smallest is not current node, swap
+        if(smallest != i) {
+            swap(arr[i], arr[smallest]);
+            heapify(arr, n);
+        }
     }
 }
 
 // Main function to perform heap sort on the array
 void heapSort(int arr[], int n) {
-    // Step 1: Build a max-heap
-    // Parent of the last element is at index n / 2 - 1
-    // Nodes from there onwards are leaf nodes
-    // Loop processes backwards so that all child nodes are heapify checked
-    for(int i = (n/2) - 1; i >= 0; i--) {
-        heapify(arr, n, i); // In case new heap violates heap property
-    }
+    // Step 1: Build a min-heap
+    heapify(arr, n);
 
     // Step 1.5: Create a temp array to store sorted elements
     int* sortedArr = new int[n];
@@ -42,11 +39,41 @@ void heapSort(int arr[], int n) {
     // Step 2: Extract smallest (root) element and store in temp array
     for(int i = 0; i < n; i++) {
         sortedArr[i] = arr[0];
-        // Move the last element to the root and reduce heap size
+        // Move the last element to the root
         arr[0] = arr[n - 1- i];
-        // Step 3: Heapify the newly reduced heap
-        heapify(arr, n - 1 - i, 0);
-    }
+
+        // Step 3: Heapify the newly reduced heap -> downHeap
+        int smallest = 0;
+        bool heapified = false;
+        int heapSize = n - 1 - i; // Reduce size
+
+        while(!heapified) {
+            int left = 2 * smallest + 1;
+            int right = 2 * smallest + 2;
+            int next = smallest;
+
+            // Check if left is < than current smallest AND we haven't reached a leaf node
+            if(left < heapSize && arr[left] < arr[next]) {
+                next = left;
+            }
+
+            // Check if right is < than current smallest AND we haven't reached a leaf node
+            if(right < heapSize && arr[right] < arr[next]) {
+                next = right;
+            }
+
+            // If no change in smallest, that means we've reached the end successfully
+            if(next == smallest) {
+                heapified = true;
+            }
+
+            // Otherwise swap smallest with the root
+            swap(arr[smallest], arr[next]);
+
+            // Continue heapify at new root
+            smallest = next;
+            }
+        }
 
     // Step 3.5: Copy sorted elements back into original array
     for(int i = 0; i < n; i++) {
@@ -55,7 +82,6 @@ void heapSort(int arr[], int n) {
 
     // Free allocated memory for temp array
     delete[] sortedArr;
-
 }
 
 // Function to print the array
@@ -71,29 +97,6 @@ int main() {
     int arr[] = {12, 11, 13, 5, 6, 7};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    int arr2[] = {}; // Empty array
-    int n2 = sizeof(arr2) / sizeof(arr2[0]);
-
-    int arr3[] = {50}; // One element
-    int n3 = sizeof(arr3) / sizeof(arr3[0]);
-
-    int arr4[] = {1, 1, 1, 1}; // All the same elements
-    int n4 = sizeof(arr4) / sizeof(arr4[0]);
-
-    int arr5[] = {2, 3, 6, 9, 11, 15}; // Array is already sorted
-    int n5 = sizeof(arr5) / sizeof(arr5[0]);
-
-    int arr6[] = {-1, -8, -2, -5, -3}; // Negative numbers
-    int n6 = sizeof(arr6) / sizeof(arr6[0]);
-
-    int arr7[] = {5, 4, 3, 2, 1}; // Reverse order
-    int n7 = sizeof(arr7) / sizeof(arr7[0]);
-
-    int arr8[] = {1, 0, -3, 7, 10, -5, 11}; // Mix of positive, negative, and zero
-    int n8 = sizeof(arr8) / sizeof(arr8[0]);
-
-
-    // === //
     cout << "Original array:\n";
     printArray(arr, n);
     cout << endl;
@@ -104,99 +107,6 @@ int main() {
     cout << "Sorted array:\n";
     printArray(arr, n);
     cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr2, n2);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr2, n2);
-
-    cout << "Sorted array:\n";
-    printArray(arr2, n2);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr3, n3);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr3, n3);
-
-    cout << "Sorted array:\n";
-    printArray(arr3, n3);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr4, n4);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr4, n4);
-
-    cout << "Sorted array:\n";
-    printArray(arr4, n4);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr5, n5);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr5, n5);
-
-    cout << "Sorted array:\n";
-    printArray(arr5, n5);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr6, n6);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr6, n6);
-
-    cout << "Sorted array:\n";
-    printArray(arr6, n6);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr7, n7);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr7, n7);
-
-    cout << "Sorted array:\n";
-    printArray(arr7, n7);
-    cout << endl;
-    // === //
-
-    // === //
-    cout << "Original array:\n";
-    printArray(arr8, n8);
-    cout << endl;
-
-    // Call the heapSort function
-    heapSort(arr8, n8);
-
-    cout << "Sorted array:\n";
-    printArray(arr8, n8);
-    cout << endl;
-    // === //
-
 
     return 0;
 }
