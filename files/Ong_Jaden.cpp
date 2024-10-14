@@ -10,12 +10,12 @@ void heapify(int arr[], int n) {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
-        // If left child is < current smallest
+        // If left child is < current smallest AND we haven't reached a leaf node
         if(left < n && arr[left] < arr[smallest]) {
             smallest = left;
         }
 
-        // If right child is < current smallest
+        // If right child is < current smallest AND we haven't reached a leaf node
         if(right < n && arr[right] < arr[smallest]) {
             smallest = right;
         }
