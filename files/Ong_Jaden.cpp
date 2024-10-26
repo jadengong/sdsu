@@ -6,25 +6,32 @@ void heapify(int arr[], int n) {
     // Build the heap -> arr[] represents the heap, n is size
 
     for(int i = (n / 2) - 1; i >= 0; i--) {
-        int smallest = i;
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
+        int current = i;
 
-        // If left child is < current smallest AND we haven't reached a leaf node
-        if(left < n && arr[left] < arr[smallest]) {
-            smallest = left;
+        bool swapped = false;
+        while(!swapped) {
+            int smallest = current;
+            int left = 2 * current + 1;
+            int right = left + 1;
+
+            // Check if left child is smaller
+            if (left < n && arr[left] < arr[smallest]) {
+                smallest = left;
+            }
+
+            // Check if right child is smaller
+            if (right < n && arr[right] < arr[smallest]) {
+                smallest = right;
+            }
+
+            // If smallest is not the current node, swap and re-heapify the next subtree
+            if(smallest != current) {
+                swap(arr[current], arr[smallest]);
+                current = smallest;
+                swapped = true;
+            }
         }
 
-        // If right child is < current smallest AND we haven't reached a leaf node
-        if(right < n && arr[right] < arr[smallest]) {
-            smallest = right;
-        }
-
-        // If smallest is not current node, swap
-        if(smallest != i) {
-            swap(arr[i], arr[smallest]);
-            heapify(arr, n);
-        }
     }
 
 }
